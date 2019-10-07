@@ -1,0 +1,16 @@
+{
+      "scripts": {
+            "dev": "node_modules/.bin/nodemon --exec \"crystal run\" src/cost_profit_app.cr",
+            "start": "npm run dev",
+            "build": "crystal build src/cost_profit_app.cr"
+      },
+      "dependencies": {
+            "nodemon": "^1.19.3"
+      },
+      "nodemonConfig": {
+            "ignore": [
+                  "node_modules/*",
+                  "lib/*"
+            ]
+      }
+}

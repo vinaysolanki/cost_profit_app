@@ -1,0 +1,23 @@
+name: cost_profit_app
+version: 0.1.0
+
+authors:
+  - Vinay Solanki <vinaysolanki2005@gmail.com>
+
+targets:
+  cost_profit_app:
+    main: src/cost_profit_app.cr
+
+crystal: 0.31.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  clear:
+    github: anykeyh/clear
+    branch: master
+  icr:
+    github: crystal-community/icr
+    branch: master
+
+license: MIT
