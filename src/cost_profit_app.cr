@@ -2,7 +2,7 @@ require "kemal"
 require "clear"
 require "../src/**"
 
-Clear::SQL.init("default", "postgres://fps:fps@0.0.0.0:54320/cost_profit_db", connection_pool_size: 5)
+Clear::SQL.init("default", "postgres://fps:fps@0.0.0.0:54320/cost_profit_db", connection_pool_size: 10)
 
 get "/" do
   "Hello World!"
@@ -23,7 +23,7 @@ get "/calculate" do |env|
   ad_cost = env.params.query["ad_cost"]
   cogs = env.params.query["cogs"]
   entry = Entry.new
-  entry.date = Time.utc(year, month, day)
+  entry.date = Time.utc(year, month, day, 10)
   entry.revenue = revenue.to_f
   entry.ad_cost = ad_cost.to_f
   entry.cogs = cogs.to_f
@@ -32,6 +32,11 @@ get "/calculate" do |env|
   else
     "There was an error saving the entry"
   end
+end
+
+get "/list_all" do
+  entries = Entry.query
+  render "src/views/list_all.ecr"
 end
 
 Kemal.run
