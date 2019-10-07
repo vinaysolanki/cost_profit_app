@@ -28,7 +28,7 @@ get "/calculate" do |env|
   entry.ad_cost = ad_cost.to_f
   entry.cogs = cogs.to_f
   if entry.save
-    render "src/views/calculate.ecr"
+    env.redirect "/list_all"
   else
     "There was an error saving the entry"
   end
@@ -36,7 +36,7 @@ end
 
 get "/list_all" do
   entries = Entry.query
-  render "src/views/list_all.ecr"
+  render "src/views/list_all.ecr", "src/views/layouts/layout.ecr"
 end
 
 Kemal.run
