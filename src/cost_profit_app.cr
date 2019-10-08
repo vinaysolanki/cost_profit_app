@@ -4,8 +4,8 @@ require "../src/**"
 
 Clear::SQL.init("default", "postgres://fps:fps@0.0.0.0:54320/cost_profit_db", connection_pool_size: 10)
 
-get "/" do
-  "Hello World!"
+get "/" do |env|
+  env.redirect "/list_all"
 end
 
 get "/app" do

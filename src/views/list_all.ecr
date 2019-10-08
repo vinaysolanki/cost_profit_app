@@ -18,6 +18,15 @@
       <td><%= entry.roi %>%</td>
     </tr>
   <% end %>
+
+  <tr>
+    <td style="font-weight: bold;">Total</td>
+    <td style="font-weight: bold;">$<%= Entry.total_revenue %></td>
+    <td style="font-weight: bold;">$<%= Entry.total_ad_cost%></td>
+    <td style="font-weight: bold;">$<%= Entry.total_cogs %></td>
+    <td style="font-weight: bold;">$<%= Entry.total_profit %></td>
+    <td style="font-weight: bold;"><%= Entry.avg_roi %>%</td>
+  </tr>
 </table>
 </br>
 </br>
